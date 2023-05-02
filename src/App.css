@@ -18,12 +18,12 @@ a:hover{
   opacity: 1; /* Firefox */
 }
 
-#signup-btn{
+.signup-btn{
   background-color: #42b72a;
   border: none;
 }
 
-#signup-btn:hover{
+.signup-btn:hover{
   background-color: #2f7f1d;
 
 }

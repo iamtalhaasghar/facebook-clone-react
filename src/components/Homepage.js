@@ -1,4 +1,6 @@
-export default function Homepage() {
+import { Button } from "react-bootstrap";
+
+export default function Homepage(props) {
   return (
     <div>
       <div class="container">
@@ -40,12 +42,15 @@ export default function Homepage() {
                   Forgotten password?
                 </a>
                 <hr class="" />
-                <input
-                  type="button"
-                  id="signup-btn"
-                  value="Create new account"
-                  class="btn btn-success w-50 d-flex mx-auto"
-                />
+
+                <Button
+                  id=""
+                  className="btn btn-success w-50 d-flex mx-auto signup-btn"
+                  variant="success"
+                  onClick={() => props.setSignupModalShow(true)}
+                >
+                  Create new account
+                </Button>
               </div>
             </div>
             <p class="text-center w-75 mt-3">
