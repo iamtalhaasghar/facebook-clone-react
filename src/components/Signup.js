@@ -3,8 +3,15 @@ import Modal from "react-bootstrap/Modal";
 
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-bootstrap";
+import { useState } from "react";
 
 function DateOfBirthSelect() {
+  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  const months = Array.from({ length: 12 }, (_, i) =>
+    new Date(0, i).toLocaleString("en", { month: "short" })
+  );
+  const years = Array.from({ length: 119 }, (_, i) => 1905 + i);
+
   return (
     <>
       <Row>
@@ -12,9 +19,11 @@ function DateOfBirthSelect() {
         <Col>
           <Form.Select aria-label="Default select example" name="birthday_day">
             <option>Day</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {days.map((day) => (
+              <option key={day} value={day}>
+                {day}
+              </option>
+            ))}
           </Form.Select>
         </Col>
         <Col>
@@ -23,17 +32,21 @@ function DateOfBirthSelect() {
             name="birthday_month"
           >
             <option>Month</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {months.map((month) => (
+              <option value={month} key={month}>
+                {month}
+              </option>
+            ))}
           </Form.Select>
         </Col>
         <Col>
           <Form.Select aria-label="Default select example" name="birthday_year">
             <option>Year</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {years.map((i) => (
+              <option value={i} key={i}>
+                {i}
+              </option>
+            ))}
           </Form.Select>
         </Col>
       </Row>
@@ -62,6 +75,7 @@ function GenderSelect() {
 }
 
 function SignupForm() {
+  const [confirmEmail, setConfirmEmail] = useState(false);
   return (
     <Form>
       <Row>
@@ -90,8 +104,21 @@ function SignupForm() {
           type="email"
           placeholder="Mobile number or email address"
           name="reg_email__"
+          onInput={() => {
+            setConfirmEmail(true);
+          }}
         />
       </Form.Group>
+
+      {confirmEmail && (
+        <Form.Group className="mb-3" controlId="mobilenum">
+          <Form.Control
+            type="email"
+            placeholder="Re-enter email address"
+            name="reg_email_confirmation__"
+          />
+        </Form.Group>
+      )}
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Control

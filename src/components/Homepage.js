@@ -48,6 +48,7 @@ export default function Homepage(props) {
                   className="btn btn-success w-50 d-flex mx-auto signup-btn"
                   variant="success"
                   onClick={() => props.setSignupModalShow(true)}
+                  data-testid="open-registration-form-button"
                 >
                   Create new account
                 </Button>
