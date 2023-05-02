@@ -64,7 +64,7 @@ function GenderSelect() {
           <Form.Check type="radio" label="Female" id="" name="sex" value="1" />
         </Col>
         <Col>
-          <Form.Check type="radio" label="Male" id="" name="sex" value="1" />
+          <Form.Check type="radio" label="Male" id="" name="sex" value="2" />
         </Col>
         {/* <Col>
           <Form.Check type="radio" label="Custom" id="" />
